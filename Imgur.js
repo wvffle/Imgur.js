@@ -9,7 +9,6 @@ var Imgur = function (clientID){
       var type = options.type||'file';
       var secure = options.secure||true;
 
-
       var fd  = new FormData();
       var xhttp = new XMLHttpRequest();
 
@@ -33,7 +32,6 @@ var Imgur = function (clientID){
           var res = JSON.parse(xhttp.responseText);
           if(secure) return next.call(xhttp, (res.data.link||'').replace('http:', 'https:'))
           else return next.call(xhttp, res.data.link)
-
         }
       })
       xhttp.send(fd);
